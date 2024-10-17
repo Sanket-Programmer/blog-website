@@ -1,0 +1,59 @@
+<%- include('partials/header.ejs') %>
+
+<div class="profile">
+   <img src="/images/Group 11.png"/>
+   <div>
+    <h2>Julia Navel</h2>
+      <p>Student</p>
+   </div>   
+      <div class="profilecontact">
+        <h2>Contact Me</h2>
+        <ul>
+            <li><i class="bi bi-envelope"></i> me@gmail.com</li>
+            <li><i class="bi bi-telephone"></i> +917008256109</li>
+            <li><i class="bi bi-house-door"></i> Odisha,India</li>
+        </ul>
+    </div>
+    <div class="profilefollow" >
+        <h2>Follow Me</h2>
+        <ul>
+            <li><i class="bi bi-facebook"></i></li>
+            <li><i class="bi bi-instagram"></i></li>
+            <li><i class="bi bi-twitter-x"></i></li>
+            <li><i class="bi bi-youtube"></i></li>
+        </ul>
+    </div>
+</div >
+<br id="create">
+<br>
+
+    <div >
+
+    <% if (locals.postId) {  %>
+        <div class="create" >
+            <h1 style="color: white; margin-bottom: 30px;">Edit Post</h1>
+            <form action="/update" method="post">
+                <input type="text" name="title" placeholder="Title" value="<%= title %>" required>
+                <textarea  name="content" id="content" cols="30" rows="18" placeholder="Content" ><%= content %></textarea>
+                <input hidden type="text" name="index" value="<%= postId %>">
+                <div>
+                    <input class="btn btn-light" type="submit" value="Update Post" style="border: none; background-color: rgb(0, 255, 123); color: black;border-radius: 10px; float: right;font-size: 18px;">
+                </div>
+            </form>
+        </div>
+    <% } else {  %>
+        <div class="create"  >
+            <h1 style="color: white; margin-bottom: 30px;">Create Post</h1>
+            <form action="/save" method="post">
+                <input  type="text" name="title" placeholder="Title" required>
+                <textarea  name="content" id="content" cols="30" rows="18" placeholder="Content"></textarea>
+                <div>
+                    <input class="btn btn-light " type="submit" value="Create Post" style="border: none; background-color: rgb(0, 255, 123); color: black;border-radius: 10px; float: right; font-size: 18px;">
+                </div>
+            </form>
+        </div>
+    <% }  %>
+        
+    </div>
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,46 @@
+<%- include('partials/header.ejs') %>
+
+<div class="profile">
+   <img src="/images/Group 11.png"/>
+   <div>
+    <h2>Julia Navel</h2>
+      <p>Student</p>
+   </div>   
+      <div class="profilecontact">
+        <h2>Contact Me</h2>
+        <ul>
+            <li><i class="bi bi-envelope"></i> me@gmail.com</li>
+            <li><i class="bi bi-telephone"></i> +917008256109</li>
+            <li><i class="bi bi-house-door"></i> Odisha,India</li>
+        </ul>
+    </div>
+    <div class="profilefollow">
+        <h2>Follow Me</h2>
+        <ul>
+            <li><i class="bi bi-facebook"></i></li>
+            <li><i class="bi bi-instagram"></i></li>
+            <li><i class="bi bi-twitter-x"></i></li>
+            <li><i class="bi bi-youtube"></i></li>
+        </ul>
+    </div>
+</div>
+
+<br id="view">
+
+        <div class="view" >
+            <div>
+                <h1 style="margin-bottom: 30px;"><%= title %></h1>
+                <p style="margin-bottom: 50px;"><%= content %></p>
+            </div>
+            <div class="button">
+                <form action="/delete" method="post">
+                    <input type="text" name="postId" hidden value=<%= postId%> >
+                   <input class="btn btn-danger" type="submit" name="delete" value="Delete"> 
+                   <a href="/#view"></a>   
+                </form>
+                
+                <a href="/edit/<%= postId %>/#create"><input class="btn btn-light" type="button" value="Edit"></a>
+            </div>
+        </div>
+
+<%- include('partials/footer.ejs') %>

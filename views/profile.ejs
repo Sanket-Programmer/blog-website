@@ -1,0 +1,52 @@
+<%- include('partials/header.ejs') %>
+
+<div class="profile">
+   <img src="/images/Group 11.png"/>
+   <div>
+    <h2>Julia Navel</h2>
+      <p>Student</p>
+   </div>   
+      <div class="profilecontact">
+        <h2>Contact Me</h2>
+        <ul>
+            <li><i class="bi bi-envelope"></i> me@gmail.com</li>
+            <li><i class="bi bi-telephone"></i> +917008256109</li>
+            <li><i class="bi bi-house-door"></i> Odisha,India</li>
+        </ul>
+    </div>
+    <div class="profilefollow">
+        <h2>Follow Me</h2>
+        <ul>
+            <li><i class="bi bi-facebook"></i></li>
+            <li><i class="bi bi-instagram"></i></li>
+            <li><i class="bi bi-twitter-x"></i></li>
+            <li><i class="bi bi-youtube"></i></li>
+        </ul>
+    </div>
+</div>
+
+<br id="profile">
+
+<div class="profile profile-posts" >
+    <div>
+        <h1 style="margin-bottom: 80px;">My Blogs....</h1>
+        <% if (posts.length === 0) { %>
+            <div>
+                <h3>No posts 😯</h3>
+            </div>
+        <% } else {  %>
+            <ul>
+        <%      posts.forEach((post) => { %>
+                <li>
+                    <p><%= post.date %></p>
+                    <h3><a href="/view/<%= posts.indexOf(post) %>/#view"><%= post.title %></a></h3>
+                    <hr>
+                </li>
+        <%     });  %>
+            </ul>
+        <% }  %>
+    </div>
+    <a href="/create/#create"><input class="btn btn-light" type="button" value="Create New Post"></a>
+</div>
+
+<%- include('partials/footer.ejs') %>
